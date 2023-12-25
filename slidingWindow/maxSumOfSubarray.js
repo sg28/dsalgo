@@ -3,8 +3,21 @@
 
 */ 
 let maxSumOfSubarray = (nums, k)=>{
-    console.log('  ',nums);
+    let currentSum = 0;
+    let maxSum = 0;
+
+    for(let i =0; i< k;i++){
+        currentSum = currentSum + nums[i];
+    }
+
+    for(let i = k ; i < nums.length;i++ ){
+        currentSum = currentSum - nums[i-k] + nums[i];
+        maxSum = Math.max(maxSum, currentSum);
+    }
+
+    return maxSum;
+
 }
 let nums = [4,2,1,7,8,1,2,8,1,0];
 let k = 3;
-maxSumOfSubarray(nums, k)
+let res = console.log(maxSumOfSubarray(nums, k));
