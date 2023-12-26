@@ -11,6 +11,7 @@ let maxSumOfSubarray = (nums, k)=>{
     }
 
     for(let i = k ; i < nums.length;i++ ){
+        // Subtract the first element from the window and add a new element to the window from the number list.
         currentSum = currentSum - nums[i-k] + nums[i];
         maxSum = Math.max(maxSum, currentSum);
     }
