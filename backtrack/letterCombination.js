@@ -25,4 +25,12 @@ function helper(res, digit, combination, mapping, index){
 
 console.log(letterCombination('22'));
 
+ /*
+ The idea of this problem solution is, to get the combination and push it in the result array.
+combinations are formed using the letters.
+we get the letters from the digits.     
+    digit is the input.
+digits needs to be mapped with the mapping array.
+    mapping array has all the letters from the phone keypad.
  
+ */
