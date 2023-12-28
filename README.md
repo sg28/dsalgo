@@ -1,2 +1,5 @@
 JavaScript Solution for leetcode.
-Target: 300 Medium. 150 Easy.
+Medium: 300.
+Easy: 150.
+
+March 30 2024.
