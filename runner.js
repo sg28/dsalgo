@@ -1,71 +1,26 @@
 /*
-count the number of occurence of an element
-find the second largest number
-
+  remove all adjacent duplicates  
 */
 
-let employee = [
-  {
-    sde: "tim",
-    tenure: 10,
-    location: "Texas",
-    domain: "software dev",
-  },
-  {
-    sde: "john",
-    tenure: 10,
-    location: "Texas",
-    domain: "software dev",
-  },
-  {
-    sde: "miller",
-    tenure: 10,
-    location: "Texas",
-    domain: "software dev",
-  },
-  {
-    sde: "tim",
-    tenure: 10,
-    location: "Texas",
-    domain: "Project Maanager",
-  },
-  {
-    sde: "tim",
-    tenure: 10,
-    location: "Texas",
-    domain: "Scrum Master",
-  },
-];
-
-let nums = [2, 3, 4, 2, 2, 3, 4, 5];
-let seq = [2, 2, 3, 4, 5, 6, 6, 7, 7];
-
-let fn = (nums) => {
-  let obj = {};
-  for (let n of nums) {
-    if (!obj[n]) {
-      obj[n] = 1;
-    } else {
-      obj[n]++;
-    }
-  }
-  console.log(obj);
-};
-
-let list = (employee) => {
-  let person = {};
-
-  for (let e of employee) {
-    if (!person[e.sde]) {
-      person[e.sde] = {
-        employees: [e],
-        count: 1,
-      };
-    } else {
-      person[e.sde].employees.push(e);
-      person[e.sde].count++;
+function rotateMatrix(matrix) {
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = i; j < matrix.length; j++) {
+      let temp = matrix[i][j];
+      matrix[i][j] = matrix[j][i];
+      matrix[j][i] = temp;
     }
   }
 
-  console.log(person);
-};
+  for (let i = 0; i < matrix.length; i++) {
+    matrix[i].reverse();
+  }
+
+  return matrix;
+}
+console.log(
+  rotateMatrix([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+  ])
+);
