@@ -1,26 +1,40 @@
 /*
-  remove all adjacent duplicates  
+find the duplicates
 */
-
-function rotateMatrix(matrix) {
-  for (let i = 0; i < matrix.length; i++) {
-    for (let j = i; j < matrix.length; j++) {
-      let temp = matrix[i][j];
-      matrix[i][j] = matrix[j][i];
-      matrix[j][i] = temp;
+function findDuplicates(nums) {
+  let map = new Map();
+  let count = 0;
+  for (let i = -0; i < nums.length; i++) {
+    if (map.has(nums[i])) {
+      map.set(nums[i], map.get(nums[i]) + 1);
+      //      key       value                 // here key is the array element and count will be the value
+    } else {
+      map.set(nums[i], 1);
     }
   }
 
-  for (let i = 0; i < matrix.length; i++) {
-    matrix[i].reverse();
+  console.log("map ", map);
+}
+
+let nums = [1, 2, 3, 6, 3, 6, 1];
+// findDuplicates(nums);
+
+/*
+ the task is to find the maximum profit possible by buying and selling the stocks on different days
+*/
+function maxProfit(prices) {
+  let minPrice = Number.MAX_SAFE_INTEGER;
+  let maxProfit = 0;
+
+  for (const price of prices) {
+    let profit = price - minPrice;
+    if (price < minPrice) {
+      minPrice = price;
+    } else if (profit > maxProfit) {
+      maxProfit = profit;
+    }
   }
 
-  return matrix;
+  return maxProfit; // Return the maximum profit found
 }
-console.log(
-  rotateMatrix([
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9],
-  ])
-);
+console.log(maxProfit([7, 1, 5, 3, 6, 4]));
